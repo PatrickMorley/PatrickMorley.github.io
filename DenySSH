@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo iptables -A INPUT -i eth0 -p tcp --dport 22 -j DROP
+sudo iptables -A OUTPUT -o eth0 -p tcp --sport 22 -j DROP

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+sudo iptables -A OUTPUT -p tcp --dport 25 -j REJECT
+
+sudo iptables -A INPUT -p tcp --dport 143 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+
+sudo iptables -A OUTPUT -p tcp --sport 143 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+
+sudo iptables -A INPUT -p tcp --dport 110 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+
+sudo iptables -A OUTPUT -p tcp --sport 110 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+
+sudo iptables -A INPUT -p tcp --dport 995 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+
+sudo iptables -A OUTPUT -p tcp --sport 995 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT

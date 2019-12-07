@@ -1,0 +1,15 @@
+Save current iptables rules with:
+
+iptables-save > savedrules.txt
+
+Delete all existing rules with:
+
+iptables -F
+
+Restore all ipables rules with:
+
+iptables-restore < savedrules.txt
+
+Check rules with:
+
+iptables -L -nv --line-number
